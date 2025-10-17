@@ -4,8 +4,18 @@ import { CASES } from './cases'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Work — Études de cas | JoeLabs',
-  description: 'Découvrez mes projets Next.js : sites vitrines, portfolios et applications SaaS.',
+  title: 'Travaux & Études de cas',
+  description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js, TypeScript et React. Études de cas détaillées avec performances et solutions techniques.',
+  keywords: ['portfolio développeur', 'études de cas', 'projets web', 'Next.js', 'TypeScript', 'sites vitrines', 'applications SaaS', 'développement web', 'réalisations'],
+  openGraph: {
+    title: 'Travaux & Études de cas | JoeLabs',
+    description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js et TypeScript.',
+    url: 'https://portfolio-dev-2025.vercel.app/work',
+  },
+  twitter: {
+    title: 'Travaux & Études de cas | JoeLabs',
+    description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js et TypeScript.',
+  },
 }
 
 export default function WorkPage() {

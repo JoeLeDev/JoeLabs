@@ -24,8 +24,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${caseStudy.title} — Étude de cas | JoeLabs`,
-    description: caseStudy.context,
+    title: `${caseStudy.title} — Étude de cas`,
+    description: `${caseStudy.context} - ${caseStudy.objective}. Technologies utilisées : ${caseStudy.stack.join(', ')}. Performance et solutions techniques détaillées.`,
+    keywords: [
+      'étude de cas',
+      'projet web',
+      'développement',
+      'Next.js',
+      'TypeScript',
+      caseStudy.client || '',
+      ...caseStudy.stack,
+    ].filter(Boolean),
+    openGraph: {
+      title: `${caseStudy.title} — Étude de cas | JoeLabs`,
+      description: `${caseStudy.context} - ${caseStudy.objective}`,
+      url: `https://portfolio-dev-2025.vercel.app/work/${caseStudy.slug}`,
+      images: [
+        {
+          url: caseStudy.cover,
+          width: 1200,
+          height: 630,
+          alt: `${caseStudy.title} - Étude de cas`,
+        },
+      ],
+    },
+    twitter: {
+      title: `${caseStudy.title} — Étude de cas`,
+      description: `${caseStudy.context} - ${caseStudy.objective}`,
+      images: [caseStudy.cover],
+    },
   }
 }
 

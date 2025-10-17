@@ -1,6 +1,22 @@
 import Link from 'next/link'
 import { CASES } from './work/cases'
 import Image from 'next/image'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Accueil',
+  description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes avec un focus sur l\'optimisation SEO et la performance.',
+  keywords: ['développeur web freelance', 'Next.js', 'TypeScript', 'React', 'site vitrine', 'portfolio', 'application web', 'développement frontend', 'SEO', 'performance web'],
+  openGraph: {
+    title: 'JoeLabs — Développeur Web Freelance | Accueil',
+    description: 'Transformez vos idées en applications web performantes. Expert Next.js, TypeScript et React pour vos projets web.',
+    url: 'https://portfolio-dev-2025.vercel.app',
+  },
+  twitter: {
+    title: 'JoeLabs — Développeur Web Freelance',
+    description: 'Transformez vos idées en applications web performantes. Expert Next.js, TypeScript et React.',
+  },
+}
 
 export default function Home() {
   return (

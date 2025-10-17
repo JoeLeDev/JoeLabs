@@ -39,11 +39,11 @@ export default function ContactPage() {
         // Réinitialiser le statut après 5 secondes
         setTimeout(() => setStatus('idle'), 5000)
       } else {
-        throw new Error('Erreur lors de l\'envoi')
+        throw new Error('Erreur lors de l&apos;envoi')
       }
     } catch (error) {
       setStatus('error')
-      setErrorMessage('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.')
+      setErrorMessage('Une erreur est survenue lors de l&apos;envoi. Veuillez réessayer.')
       
       // Réinitialiser le statut après 5 secondes
       setTimeout(() => setStatus('idle'), 5000)
@@ -66,7 +66,7 @@ export default function ContactPage() {
             Parlons de votre projet
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Vous avez un projet en tête ? Besoin d'un devis ? Je suis à votre écoute pour discuter de vos besoins et vous proposer une solution adaptée.
+            Vous avez un projet en tête ? Besoin d&apos;un devis ? Je suis à votre écoute pour discuter de vos besoins et vous proposer une solution adaptée.
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand transition-colors"
-                  placeholder="Création d'un site vitrine"
+                  placeholder="Création d&apos;un site vitrine"
                 />
               </div>
 

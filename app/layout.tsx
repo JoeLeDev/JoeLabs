@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     siteName: 'JoeLabs',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/work/LogoJoe.png',
         width: 1200,
         height: 630,
         alt: 'JoeLabs - Développeur Web Freelance',
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JoeLabs — Développeur Web Freelance',
     description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React.',
-    images: ['/og-image.jpg'],
+    images: ['/work/LogoJoe.png'],
     creator: '@JoeLeDev',
   },
   robots: {
@@ -60,6 +61,14 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'your-google-verification-code',
+  },
+  icons: {
+    icon: [
+      { url: '/work/LogoJoe.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/work/LogoJoe.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 }
 
@@ -103,8 +112,15 @@ export default function RootLayout({
         <header className="border-b border-gray-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
           <nav className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <Link href="/" className="text-xl font-bold text-brand">
-                JoeLabs
+              <Link href="/" className="flex items-center gap-2">
+                <Image
+                  src="/work/LogoJoe.png"
+                  alt="JoeLabs Logo"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 rounded-full object-cover object-center"
+                />
+                <span className="text-xl font-bold text-brand">JoeLabs</span>
               </Link>
               <ul className="flex gap-6">
                 <li>

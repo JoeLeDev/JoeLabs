@@ -91,3 +91,8 @@ pids
 # Temporary folders
 tmp/
 temp/
+
+# MD files
+FORMSPREE_SETUP.md
+GUIDE_FREELANCE.md
+IMAGES_PROJETS.md

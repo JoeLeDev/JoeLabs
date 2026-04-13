@@ -125,7 +125,7 @@ npm run lint         # Vérification ESLint
 
 Pour toute question ou personnalisation :
 - Email : [jonathanluembe@yahoo.com]
-- Portfolio : [https://portfolio-dev-2025.vercel.app/]
+- Portfolio : [https://jonathanluembe.dev/]
 
 ## 📄 Licence
 
@@ -133,4 +133,4 @@ Projet privé - Tous droits réservés
 
 ---
 
-**Développé avec ❤️ par JoeLeDev**
+**Développé par JoeLeDev**

@@ -109,11 +109,11 @@ export default function Home() {
                       <span className="text-brand text-sm font-medium">2022-2025</span>
                     </div>
                     <p className="text-gray-300 mb-2">
-                      <strong>HETIC</strong> - École des Technologies Créatives
+                      <strong>HETIC</strong> - Hautes Etudes de l'Information et de la Communication
                     </p>
                     <p className="text-gray-400 text-sm">
-                      Formation complète en développement web : React, Node.js, bases de données, 
-                      UI/UX design. Projets pratiques et stages en entreprise.
+                      Formation complète en développement web : Next.js, TypeScript, React, Node.js, bases de données, 
+                      UI/UX design. Projets pratiques et alternance en entreprise.
                     </p>
                   </div>
                 </div>

@@ -81,14 +81,14 @@ export default function Home() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white">Master Data & Intelligence Artificielle</h3>
-                      <span className="text-brand text-sm font-medium">2025-2027</span>
+                      <h3 className="text-xl font-bold text-white">Master Full Stack & Sécurité</h3>
+                      <span className="text-brand text-sm font-medium">2026-2028</span>
                     </div>
                     <p className="text-gray-300 mb-2">
-                      <strong>IPSSI</strong> - École Supérieure d&apos;Informatique
+                      <strong>LiveCampus</strong> - École Supérieure d'informatique
                     </p>
                     <p className="text-gray-400 text-sm">
-                      Spécialisation en architectures avancées, DevOps, et gestion de projet. 
+                      Spécialisation en architectures avancées, Cybersécurité, et gestion de projet. 
                       Approfondissement des technologies modernes et méthodologies de développement.
                     </p>
                   </div>

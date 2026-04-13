@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CASES } from './cases'
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Travaux & Études de cas',
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Travaux & Études de cas | JoeLabs',
     description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js et TypeScript.',
-    url: 'https://portfolio-dev-2025.vercel.app/work',
+    url: `${SITE_URL}/work`,
   },
   twitter: {
     title: 'Travaux & Études de cas | JoeLabs',

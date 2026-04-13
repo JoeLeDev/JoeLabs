@@ -86,7 +86,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 mb-6">
+              <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-brand bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <span className="text-xl">💼</span>
                 </div>
@@ -94,18 +94,6 @@ export default function ContactPage() {
                   <h3 className="text-white font-bold mb-1">LinkedIn</h3>
                   <a href="https://www.linkedin.com/in/jonathanluembe/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline text-sm">
                     Voir mon profil
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-brand bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">💻</span>
-                </div>
-                <div>
-                  <h3 className="text-white font-bold mb-1">GitHub</h3>
-                  <a href="https://github.com/JoeLeDev" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline text-sm">
-                    github.com/JoeLeDev
                   </a>
                 </div>
               </div>

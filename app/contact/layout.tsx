@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact | JoeLabs — Développeur Web Freelance',
     description: 'Contactez-moi pour vos projets de développement web. Spécialisé en Next.js, TypeScript et React. Devis gratuit.',
-    url: 'https://portfolio-dev-2025.vercel.app/contact',
+    url: `${SITE_URL}/contact`,
   },
   twitter: {
     title: 'Contact | JoeLabs',

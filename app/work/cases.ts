@@ -16,10 +16,6 @@ export type CaseStudy = {
   kpis: KPI[];
   challenges: string[];
   solutions: string[];
-  links?: {
-    live?: string;
-    github?: string;
-  };
   cover: string;
   gallery?: string[];
 };
@@ -51,7 +47,6 @@ export const CASES: CaseStudy[] = [
       "Masonry/justified grid avec réservations d'espace",
       "Lightbox accessible, préchargement intelligent"
     ],
-    links: {},
     cover: "/work/Sarah.png",
     gallery: ["/work/Sarah.png", "/work/Sarah.png", "/work/Sarah.png"]
   },
@@ -90,10 +85,6 @@ export const CASES: CaseStudy[] = [
       "Données structurées en config (ex. sessions d’activation) pour mise à jour simple",
       "Route API Next.js + Resend, variables d’environnement pour la prod",
     ],
-    links: {
-      live: "https://advalis.fr",
-      github: "https://github.com/JoeLeDev/Advalis",
-    },
     cover: "/work/advalis-accueil.png",
     gallery: [
       "/work/advalis-accueil.png",

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CASES } from '../cases'
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 type Props = {
   params: { slug: string }
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${caseStudy.title} — Étude de cas | JoeLabs`,
       description: `${caseStudy.context} - ${caseStudy.objective}`,
-      url: `https://portfolio-dev-2025.vercel.app/work/${caseStudy.slug}`,
+      url: `${SITE_URL}/work/${caseStudy.slug}`,
       images: [
         {
           url: caseStudy.cover,
@@ -227,32 +228,6 @@ export default function CaseStudyPage({ params }: Props) {
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
-
-              {/* CTAs */}
-              {caseStudy.links && (
-                <div className="space-y-3">
-                  {caseStudy.links.live && (
-                    <a
-                      href={caseStudy.links.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-brand text-slate-900 text-center px-4 py-3 rounded-lg hover:bg-opacity-90 transition-all font-medium"
-                    >
-                      Voir le site →
-                    </a>
-                  )}
-                  {caseStudy.links.github && (
-                    <a
-                      href={caseStudy.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full border border-brand text-brand text-center px-4 py-3 rounded-lg hover:bg-brand hover:text-slate-900 transition-all font-medium"
-                    >
-                      Voir le code GitHub →
-                    </a>
-                  )}
                 </div>
               )}
             </div>

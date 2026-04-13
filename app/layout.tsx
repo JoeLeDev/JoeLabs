@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { LINKEDIN_URL, SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes. Expert en SEO et optimisation.',
   keywords: ['développeur web', 'freelance', 'Next.js', 'TypeScript', 'React', 'portfolio', 'site vitrine', 'application web', 'SEO', 'performance'],
-  authors: [{ name: 'Jonathan Luembe', url: 'https://portfolio-dev-2025.vercel.app/' }],
+  authors: [{ name: 'Jonathan Luembe', url: `${SITE_URL}/` }],
   creator: 'Jonathan Luembe',
   publisher: 'JoeLabs',
   formatDetection: {
@@ -21,14 +22,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://portfolio-dev-2025.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'JoeLabs — Développeur Web Freelance | Next.js & TypeScript',
     description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes.',
-    url: 'https://portfolio-dev-2025.vercel.app',
+    url: SITE_URL,
     siteName: 'JoeLabs',
     images: [
       {
@@ -83,11 +84,8 @@ export default function RootLayout({
     name: 'Jonathan Luembe',
     jobTitle: 'Développeur Web Freelance',
     description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS.',
-    url: 'https://portfolio-dev-2025.vercel.app',
-    sameAs: [
-      'https://github.com/JoeLeDev',
-      'https://portfolio-dev-2025.vercel.app'
-    ],
+    url: SITE_URL,
+    sameAs: [SITE_URL, LINKEDIN_URL],
     knowsAbout: ['Next.js', 'TypeScript', 'React', 'Développement Web', 'SEO', 'Performance Web'],
     offers: {
       '@type': 'Service',

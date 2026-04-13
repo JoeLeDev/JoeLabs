@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { CASES } from './work/cases'
+import { SITE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://portfolio-dev-2025.vercel.app'
+  const baseUrl = SITE_URL
   
   // Pages statiques
   const staticPages = [

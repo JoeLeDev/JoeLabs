@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CASES } from './work/cases'
 import Image from 'next/image'
 import { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Accueil',
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'JoeLabs — Développeur Web Freelance | Accueil',
     description: 'Transformez vos idées en applications web performantes. Expert Next.js, TypeScript et React pour vos projets web.',
-    url: 'https://portfolio-dev-2025.vercel.app',
+    url: SITE_URL,
   },
   twitter: {
     title: 'JoeLabs — Développeur Web Freelance',

@@ -25,34 +25,7 @@ export type CaseStudy = {
 };
 
 export const CASES: CaseStudy[] = [
-  {
-    slug: "andre-deco",
-    title: "André Déco",
-    subtitle: "Vitrine artisan • Services, réalisations, contact",
-    client: "André Déco",
-    period: "2025",
-    context: "Site vitrine pour artisan décoration/rénovation : présentation des prestations, mise en avant des réalisations (galerie), capture de leads via formulaire.",
-    objective: "Fournir un site rapide et clair pour convertir des demandes locales, optimisé SEO de base et mobile-first.",
-    role: "Dév Next.js & intégration UI (design sobre, responsive, SEO technique et performance).",
-    stack: ["Next.js 14 (App Router)", "TypeScript", "Tailwind CSS", "Next/Image"],
-    kpis: [
-      { label: "Lighthouse (desktop)", value: "> 95" },
-      { label: "Poids page d'accueil", value: "< 1 Mo (lazy images)" }
-    ],
-    challenges: [
-      "Montrer des visuels de qualité sans ralentir le site",
-      "Clarifier l'offre et les CTA",
-      "SEO local de base"
-    ],
-    solutions: [
-      "Next/Image (WebP/AVIF, blur, sizes responsives)",
-      "Sections services + preuves (réalisations) + CTA clair",
-      "Balises méta/OG + schema.org LocalBusiness"
-    ],
-    links: {},
-    cover: "/work/Andre.png",
-    gallery: ["/work/Andre.png", "/work/Andre.png", "/work/Andre.png"]
-  },
+  
   {
     slug: "portfolio-photographe-sarah",
     title: "Portfolio Photographe — Sarah",
@@ -84,32 +57,50 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "advalis-saas",
-    title: "Advalis — SaaS de conseil",
-    subtitle: "MVP • Onboarding client, offres & pipeline commercial",
-    client: "Advalis",
-    period: "2025",
-    context: "Création d'un MVP SaaS : gestion des offres/prestations, suivi des demandes (pipeline), espace client simplifié.",
-    objective: "Livrer un socle produit exploitable : auth & rôles, modèles extensibles, vues pipeline et client.",
-    role: "Dév full-stack Next.js : modélisation, auth/roles, écrans pipeline, composants UI, perfs et SEO.",
-    stack: ["Next.js 14 (Full-stack)", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "shadcn/ui"],
+    title: "Advalis Conseil — Site vitrine",
+    subtitle: "Cabinet de conseil • Heros par rubrique, offre Kairos, articles & contact",
+    client: "Advalis Conseil",
+    period: "2025 — 2026",
+    context:
+      "Site vitrine pour le cabinet Advalis Conseil : présentation du savoir-faire, des secteurs d’intervention, de la rubrique Inspirations (articles), FAQ, formulaire de contact (Resend) et page dédiée « Activation projet » (Kairos) avec formats collectif et individuel.",
+    objective:
+      "Offrir une image premium et lisible, une navigation claire entre les grandes parties du site, et des parcours vers la prise de contact / réservation, tout en gardant de bonnes performances et un code maintenable.",
+    role:
+      "Développement front Next.js (App Router) : intégration UI (heros full-width, grilles, mise en page éditoriale), composants réutilisables, formulaire contact + route API, configuration des contenus centralisée (sessions Kairos, etc.), déploiement.",
+    stack: [
+      "Next.js 14 (App Router)",
+      "TypeScript",
+      "Tailwind CSS",
+      "Radix UI",
+      "Lucide React",
+      "Resend",
+    ],
     kpis: [
-      { label: "Livraison MVP", value: "3 sprints" },
-      { label: "Pages core", value: "Onboarding + Pipeline + Espace client" },
-      { label: "Perf (desktop)", value: "> 95" }
+      { label: "Rubriques livrées", value: "Accueil, Savoir-faire, Secteurs, Inspirations, À propos, FAQ, Contact" },
+      { label: "Offre dédiée", value: "Page Kairos (/activation)" },
+      { label: "Perf (desktop)", value: "Objectif Lighthouse élevé" },
     ],
     challenges: [
-      "RBAC simple mais évolutif",
-      "Prioriser time-to-value du MVP",
-      "Perfs sur listes filtrées/triées"
+      "Varier les heros (plein écran, compositions avec visuels) tout en restant cohérent avec la charte",
+      "Contenus éditoriaux évolutifs (articles, dates de sessions) sans surcharge technique pour le client",
+      "Formulaire de contact fiable en production (email transactionnel)",
     ],
     solutions: [
-      "RBAC minimal (admin/consultant/client) + guards/policies",
-      "Backlog priorisé (Kano) en user stories",
-      "Pagination + requêtes sélectives, virtualisation"
+      "Système de pages et sections réutilisables, tokens couleur / typo dans le thème Tailwind",
+      "Données structurées en config (ex. sessions d’activation) pour mise à jour simple",
+      "Route API Next.js + Resend, variables d’environnement pour la prod",
     ],
-    links: {},
-    cover: "/work/Advalis.png",
-    gallery: ["/work/Advalis.png", "/work/Advalis.png", "/work/Advalis.png"]
+    links: {
+      live: "https://advalis.fr",
+      github: "https://github.com/JoeLeDev/Advalis",
+    },
+    cover: "/work/advalis-accueil.png",
+    gallery: [
+      "/work/advalis-accueil.png",
+      "/work/advalis-savoir-faire.png",
+      "/work/advalis-secteurs.png",
+      "/work/advalis-kairos.png",
+    ],
   }
 ];
 

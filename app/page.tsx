@@ -85,7 +85,7 @@ export default function Home() {
                       <span className="text-brand text-sm font-medium">2026-2028</span>
                     </div>
                     <p className="text-gray-300 mb-2">
-                      <strong>LiveCampus</strong> - École Supérieure d'informatique
+                      <strong>LiveCampus</strong> - École Supérieure d&apos;informatique
                     </p>
                     <p className="text-gray-400 text-sm">
                       Spécialisation en architectures avancées, Cybersécurité, et gestion de projet. 
@@ -109,11 +109,11 @@ export default function Home() {
                       <span className="text-brand text-sm font-medium">2022-2025</span>
                     </div>
                     <p className="text-gray-300 mb-2">
-                      <strong>HETIC</strong> - Hautes Etudes de l'Information et de la Communication
+                      <strong>HETIC</strong> - Hautes Etudes de l&apos;Information et de la Communication
                     </p>
                     <p className="text-gray-400 text-sm">
-                      Formation complète en développement web : Next.js, TypeScript, React, Node.js, bases de données, 
-                      UI/UX design. Projets pratiques et alternance en entreprise.
+                      Formation complète en développement web : Next.js, TypeScript, React, Node.js, bases de données, UI/UX design.
+                      Projets pratiques et alternance en entreprise.
                     </p>
                   </div>
                 </div>

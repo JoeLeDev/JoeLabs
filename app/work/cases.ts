@@ -19,6 +19,7 @@ export type CaseStudy = {
   cover: string;
   gallery?: string[];
   liveUrl?: string;
+  sector?: string;
 };
 
 export const CASES: CaseStudy[] = [
@@ -27,6 +28,7 @@ export const CASES: CaseStudy[] = [
     title: "Capitaine Depan' — Serrurier Île-de-France",
     subtitle: "Site vitrine • Urgence 24/7, services, devis & contact",
     client: "Capitaine Depan'",
+    sector: "Artisan · Serrurerie · Urgence 24/7",
     period: "2026",
     context:
       "Site one-page pour un serrurier dépanneur en Île-de-France : identité visuelle forte (mascotte, thème sombre et orange), présentation des prestations, parcours de conversion (appel, WhatsApp, demande de devis) et formulaire de contact structuré.",
@@ -69,8 +71,9 @@ export const CASES: CaseStudy[] = [
   {
     slug: "advalis-saas",
     title: "Advalis Conseil — Site vitrine",
-    subtitle: "Cabinet de conseil • Heros par rubrique, offre Kairos, articles & contact",
+    subtitle: "Cabinet de conseil • Héros par rubrique, offre Kairos, articles & contact",
     client: "Advalis Conseil",
+    sector: "Conseil · Formation · B2B",
     period: "2025 — 2026",
     context:
       "Site vitrine pour le cabinet Advalis Conseil : présentation du savoir-faire, des secteurs d’intervention, de la rubrique Inspirations (articles), FAQ, formulaire de contact (Resend) et page dédiée « Activation projet » (Kairos) avec formats collectif et individuel.",

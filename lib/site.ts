@@ -1,6 +1,16 @@
-/** URL canonique du portfolio. */
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://freelance.jonathanluembe.dev'
+/** URL canonique du portfolio (avec https:// obligatoire). */
+function normalizeSiteUrl(raw?: string): string {
+  const fallback = 'https://freelance.jonathanluembe.dev'
+  const value = raw?.trim() || fallback
+
+  if (value.startsWith('http://') || value.startsWith('https://')) {
+    return value.replace(/\/$/, '')
+  }
+
+  return `https://${value.replace(/\/$/, '')}`
+}
+
+export const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL)
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanluembe/'
 

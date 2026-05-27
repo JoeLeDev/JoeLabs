@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CASES } from './work/cases'
 import Image from 'next/image'
+import ProjectCard from '@/components/ProjectCard'
 import { Metadata } from 'next'
 import { SITE_URL } from '@/lib/site'
 
@@ -295,35 +296,14 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              {CASES.slice(0, 2).map((project) => (
-                <Link
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 items-stretch">
+              {CASES.map((project, index) => (
+                <ProjectCard
                   key={project.slug}
-                  href={`/work/${project.slug}`}
-                  className="group block bg-slate-900 border border-slate-700 rounded-lg overflow-hidden shadow-sm hover:shadow-brand/20 hover:border-brand/50 transition-all duration-300 hover:scale-105 animate-fade-in-up"
-                  style={{ animationDelay: `${project.slug.length * 100}ms` }}
-                >
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-800">
-                    <Image
-                      src={project.cover}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-brand transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-brand text-sm font-medium mb-3">
-                      {project.subtitle}
-                    </p>
-                    <p className="text-gray-400 text-sm line-clamp-2">
-                      {project.context}
-                    </p>
-                  </div>
-                </Link>
+                  project={project}
+                  priority={index === 0}
+                  className="hover:scale-[1.02] animate-fade-in-up"
+                />
               ))}
             </div>
 

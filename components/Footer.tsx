@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CONTACT_EMAIL, LINKEDIN_URL, OWNER_NAME, SITE_NAME, SITE_URL } from '@/lib/site'
+import { CONTACT_EMAIL, LINKEDIN_URL, OWNER_NAME, SITE_NAME } from '@/lib/site'
 
 const FOOTER_LINKS = [
   { href: '/', label: 'Accueil' },
@@ -56,8 +56,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={SITE_URL} className="text-gray-400 hover:text-brand transition-colors">
-                  {SITE_URL.replace('https://', '')}
+                <a href="https://jonathanluembe.dev" className="text-gray-400 hover:text-brand transition-colors">
+                  Portfolio personnel
                 </a>
               </li>
             </ul>

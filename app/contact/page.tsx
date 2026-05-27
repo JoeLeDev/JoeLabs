@@ -1,16 +1,24 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
+import Link from 'next/link'
+import { CONTACT_EMAIL, LINKEDIN_URL } from '@/lib/site'
 
 export default function ContactPage() {
+  const [formLoadedAt, setFormLoadedAt] = useState<number | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
+    company: '',
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  useEffect(() => {
+    setFormLoadedAt(Date.now())
+  }, [])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -28,14 +36,15 @@ export default function ContactPage() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
+          company: formData.company,
+          formLoadedAt,
         }),
       })
 
       if (response.ok) {
         setStatus('success')
-        setFormData({ name: '', email: '', subject: '', message: '' })
-        
-        // Réinitialiser le statut après 5 secondes
+        setFormData({ name: '', email: '', subject: '', message: '', company: '' })
+        setFormLoadedAt(Date.now())
         setTimeout(() => setStatus('idle'), 5000)
       } else {
         const data = (await response.json().catch(() => null)) as { error?: string } | null
@@ -48,8 +57,6 @@ export default function ContactPage() {
           ? error.message
           : "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
       )
-      
-      // Réinitialiser le statut après 5 secondes
       setTimeout(() => setStatus('idle'), 5000)
     }
   }
@@ -64,7 +71,6 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-20">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Parlons de votre projet
@@ -75,7 +81,6 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start justify-center">
-          {/* Contact Info */}
           <div className="lg:col-span-1 space-y-6 justify-center mx-auto">
             <div className="bg-slate-900 border border-slate-700 p-6 rounded-lg">
               <div className="flex items-start gap-4 mb-6">
@@ -83,9 +88,9 @@ export default function ContactPage() {
                   <span className="text-xl">📧</span>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold mb-1">Email</h3>
-                  <a href="mailto:jonathanluembe@yahoo.com" className="text-brand hover:underline text-sm">
-                    jonathanluembe@yahoo.com
+                  <h3 className="text-white font-bold mb-1">E-mail</h3>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand hover:underline text-sm">
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
@@ -96,7 +101,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-white font-bold mb-1">LinkedIn</h3>
-                  <a href="https://www.linkedin.com/in/jonathanluembe/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline text-sm">
+                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline text-sm">
                     Voir mon profil
                   </a>
                 </div>
@@ -110,29 +115,38 @@ export default function ContactPage() {
               </p>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-brand rounded-full animate-pulse"></div>
-                <span className="text-brand text-sm font-medium">Réponse sous 24h</span>
+                <span className="text-brand text-sm font-medium">Réponse sous 24 h</span>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="lg:col-span-2">
-                  <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-700 p-8 rounded-lg space-y-6 w-full">
-                    {/* Success Message */}
-                    {status === 'success' && (
-                      <div className="bg-brand bg-opacity-10 border border-brand text-brand px-4 py-3 rounded-lg">
-                        <strong>Message envoyé !</strong> Je vous répondrai dans les plus brefs délais.
-                      </div>
-                    )}
+            <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-700 p-8 rounded-lg space-y-6 w-full">
+              {status === 'success' && (
+                <div className="bg-brand bg-opacity-10 border border-brand text-brand px-4 py-3 rounded-lg" role="status">
+                  <strong>Message envoyé !</strong> Je vous répondrai dans les plus brefs délais.
+                </div>
+              )}
 
-                    {/* Error Message */}
-                    {status === 'error' && (
-                      <div className="bg-red-500 bg-opacity-10 border border-red-500 text-red-500 px-4 py-3 rounded-lg">
-                        <strong>Erreur !</strong> {errorMessage}
-                      </div>
-                    )}
+              {status === 'error' && (
+                <div className="bg-red-500 bg-opacity-10 border border-red-500 text-red-500 px-4 py-3 rounded-lg" role="alert">
+                  <strong>Erreur !</strong> {errorMessage}
+                </div>
+              )}
 
-              {/* Name */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="company">Entreprise</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div>
                 <label htmlFor="name" className="block text-white font-medium mb-2">
                   Nom complet <span className="text-brand">*</span>
@@ -145,14 +159,13 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand transition-colors"
-                  placeholder="John Doe"
+                  placeholder="Jean Dupont"
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-white font-medium mb-2">
-                  Email <span className="text-brand">*</span>
+                  E-mail <span className="text-brand">*</span>
                 </label>
                 <input
                   type="email"
@@ -162,11 +175,10 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand transition-colors"
-                  placeholder="john@exemple.com"
+                  placeholder="vous@exemple.fr"
                 />
               </div>
 
-              {/* Subject */}
               <div>
                 <label htmlFor="subject" className="block text-white font-medium mb-2">
                   Sujet <span className="text-brand">*</span>
@@ -179,11 +191,10 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand transition-colors"
-                  placeholder="Création d&apos;un site vitrine"
+                  placeholder="Création d'un site vitrine"
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-white font-medium mb-2">
                   Message <span className="text-brand">*</span>
@@ -200,36 +211,34 @@ export default function ContactPage() {
                 />
               </div>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={status === 'sending' || !formData.name || !formData.email || !formData.subject || !formData.message}
-                      className="w-full bg-brand text-slate-900 px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
-                    </button>
+              <button
+                type="submit"
+                disabled={status === 'sending' || !formData.name || !formData.email || !formData.subject || !formData.message}
+                className="w-full bg-brand text-slate-900 px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
+              </button>
 
               <p className="text-gray-400 text-sm text-center">
-                Vos données sont traitées de manière confidentielle et ne seront pas partagées.
+                Vos données sont traitées conformément à la{' '}
+                <Link href="/politique-de-confidentialite" className="text-brand hover:underline">
+                  politique de confidentialité
+                </Link>.
               </p>
             </form>
           </div>
         </div>
 
-        {/* Additional Info */}
         <div className="mt-12 text-center">
-          <p className="text-gray-300 mb-4">
-            Vous préférez un premier contact rapide ?
-          </p>
+          <p className="text-gray-300 mb-4">Vous préférez un premier contact rapide ?</p>
           <a
-            href="mailto:contact@joelabs.dev?subject=Demande de devis&body=Bonjour,"
+            href={`mailto:${CONTACT_EMAIL}?subject=Demande de devis&body=Bonjour,`}
             className="inline-flex items-center gap-2 text-brand hover:underline font-medium"
           >
-            📧 Envoyez-moi un email directement
+            📧 Envoyez-moi un e-mail directement
           </a>
         </div>
       </div>
     </div>
   )
 }
-

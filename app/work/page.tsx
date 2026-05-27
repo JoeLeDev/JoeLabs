@@ -5,17 +5,17 @@ import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Travaux & Études de cas',
-  description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js, TypeScript et React. Études de cas détaillées avec performances et solutions techniques.',
-  keywords: ['portfolio développeur', 'études de cas', 'projets web', 'Next.js', 'TypeScript', 'sites vitrines', 'applications SaaS', 'développement web', 'réalisations'],
+  title: 'Réalisations & études de cas',
+  description: 'Découvrez mes réalisations : sites vitrines et applications web développés avec React, TypeScript et Next.js. Études de cas détaillées avec performances et solutions techniques.',
+  keywords: ['portfolio développeur', 'études de cas', 'projets web', 'React', 'TypeScript', 'Next.js', 'sites vitrines', 'développement web', 'réalisations'],
   openGraph: {
-    title: 'Travaux & Études de cas | JoeLabs',
-    description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js et TypeScript.',
+    title: 'Réalisations & études de cas | JoeLabs',
+    description: 'Découvrez mes réalisations : sites vitrines et applications web développés avec React et TypeScript.',
     url: `${SITE_URL}/work`,
   },
   twitter: {
-    title: 'Travaux & Études de cas | JoeLabs',
-    description: 'Découvrez mes réalisations : sites vitrines, portfolios et applications SaaS développés avec Next.js et TypeScript.',
+    title: 'Réalisations & études de cas | JoeLabs',
+    description: 'Découvrez mes réalisations : sites vitrines et applications web développés avec React et TypeScript.',
   },
 }
 
@@ -24,7 +24,7 @@ export default function WorkPage() {
     <div className="container mx-auto px-4 py-20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-white">Work</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white">Réalisations</h1>
           <p className="text-xl text-gray-300">
             Études de cas et projets sélectionnés
           </p>

@@ -6,16 +6,16 @@ import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Accueil',
-  description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes avec un focus sur l\'optimisation SEO et la performance.',
-  keywords: ['développeur web freelance', 'Next.js', 'TypeScript', 'React', 'site vitrine', 'portfolio', 'application web', 'développement frontend', 'SEO', 'performance web'],
+  description: 'Développeur web freelance spécialisé en React, TypeScript et applications web performantes. Création de sites vitrines, portfolios et projets sur mesure avec un focus SEO et performance.',
+  keywords: ['développeur web freelance', 'React', 'TypeScript', 'Next.js', 'site vitrine', 'portfolio', 'application web', 'développement frontend', 'SEO', 'performance web'],
   openGraph: {
     title: 'JoeLabs — Développeur Web Freelance | Accueil',
-    description: 'Transformez vos idées en applications web performantes. Expert Next.js, TypeScript et React pour vos projets web.',
+    description: 'Transformez vos idées en applications web performantes. Expert React, TypeScript et développement sur mesure.',
     url: SITE_URL,
   },
   twitter: {
     title: 'JoeLabs — Développeur Web Freelance',
-    description: 'Transformez vos idées en applications web performantes. Expert Next.js, TypeScript et React.',
+    description: 'Transformez vos idées en applications web performantes. Expert React et TypeScript.',
   },
 }
 
@@ -33,9 +33,23 @@ export default function Home() {
             <span className="text-brand animate-gradient bg-gradient-to-r from-brand to-emerald-400 bg-clip-text text-transparent">applications web performantes</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
-            Développeur spécialisé en <strong className="text-white">Next.js</strong> et <strong className="text-white">TypeScript</strong>. 
-             Je crée des sites vitrines, portfolios et applications SaaS optimisés pour la performance et le référencement.
+            Développeur spécialisé en <strong className="text-white">React</strong> et <strong className="text-white">TypeScript</strong>.
+            Je crée des sites vitrines et applications web optimisés pour la performance et le référencement.
           </p>
+          <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animation-delay-300">
+            <Link
+              href="/contact"
+              className="bg-brand text-slate-900 px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium shadow-lg hover:scale-105"
+            >
+              Demander un devis
+            </Link>
+            <Link
+              href="/work"
+              className="border-2 border-brand text-brand px-8 py-4 rounded-lg hover:bg-brand hover:text-slate-900 transition-all duration-300 font-medium hover:scale-105"
+            >
+              Voir mes réalisations
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -51,7 +65,8 @@ export default function Home() {
               Mon approche allie <strong className="text-white">expertise technique</strong> et <strong className="text-white">sens du design</strong> pour transformer vos idées en solutions web qui marquent vos utilisateurs.
             </p>
             <p className="text-gray-300 mb-8 animate-fade-in-up animation-delay-200">
-              Spécialisé dans l&apos;écosystème React/Next.js, je privilégie la <strong className="text-brand">performance</strong>, 
+              Spécialisé en <strong className="text-brand">React</strong> et l&apos;écosystème moderne (Vite, Next.js),
+              je privilégie la <strong className="text-brand">performance</strong>,
               l&apos;<strong className="text-brand">accessibilité</strong> et le <strong className="text-brand">SEO</strong> pour garantir le succès de vos projets.
             </p>
           </div>
@@ -142,83 +157,83 @@ export default function Home() {
             {/* Technologies principales */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {[
-                { 
-                  name: 'Next.js', 
-                  description: 'Framework React full-stack',
+                {
+                  name: 'React',
+                  description: 'Interfaces utilisateur modernes',
                   logo: (
-                    <Image 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" 
-                      alt="Next.js" 
+                    <Image
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                      alt="React"
                       width={32}
                       height={32}
                       className="w-8 h-8"
                     />
-                  )
+                  ),
                 },
-                { 
-                  name: 'TypeScript', 
-                  description: 'JavaScript typé',
+                {
+                  name: 'TypeScript',
+                  description: 'JavaScript typé et robuste',
                   logo: (
-                    <Image 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" 
-                      alt="TypeScript" 
+                    <Image
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                      alt="TypeScript"
                       width={32}
                       height={32}
                       className="w-8 h-8"
                     />
-                  )
+                  ),
                 },
-                { 
-                  name: 'React', 
-                  description: 'Library UI',
+                {
+                  name: 'Vite',
+                  description: 'Build rapide pour SPA React',
                   logo: (
-                    <Image 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" 
-                      alt="React" 
+                    <Image
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+                      alt="Vite"
                       width={32}
                       height={32}
                       className="w-8 h-8"
                     />
-                  )
+                  ),
                 },
-                { 
-                  name: 'Node.js', 
+                {
+                  name: 'Next.js',
+                  description: 'React full-stack et SEO avancé',
+                  logo: (
+                    <Image
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                      alt="Next.js"
+                      width={32}
+                      height={32}
+                      className="w-8 h-8"
+                    />
+                  ),
+                },
+                {
+                  name: 'Node.js',
                   description: 'Backend JavaScript',
                   logo: (
-                    <Image 
-                      src="https://nodejs.org/static/images/logo.svg" 
-                      alt="Node.js" 
+                    <Image
+                      src="https://nodejs.org/static/images/logo.svg"
+                      alt="Node.js"
                       width={32}
                       height={32}
                       className="w-8 h-8"
                     />
-                  )
+                  ),
                 },
-                { 
-                  name: 'Docker', 
-                  description: 'Containerization',
+                {
+                  name: 'PostgreSQL',
+                  description: 'Base de données relationnelle',
                   logo: (
-                    <Image 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" 
-                      alt="Docker" 
+                    <Image
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                      alt="PostgreSQL"
                       width={32}
                       height={32}
                       className="w-8 h-8"
                     />
-                  )
-                },
-                { 
-                  name: 'PostgreSQL', 
-                  description: 'Database Management System',
-                  logo: (
-                    <Image 
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" 
-                      alt="PostgreSQL" 
-                      width={32}
-                      height={32}
-                      className="w-8 h-8"
-                    />
-                  )
+                  ),
                 },
               ].map((tech, index) => (
                 <div
@@ -244,8 +259,8 @@ export default function Home() {
               <h3 className="text-xl font-bold text-white mb-6">Outils & Technologies complémentaires</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  'Tailwind CSS', 'Prisma', 'PostgreSQL', 'MongoDB', 
-                  'Git', 'Figma', 'Vercel', 'AWS', 'Jest', 'ESLint'
+                  'Tailwind CSS', 'Prisma', 'MongoDB',
+                  'Git', 'Figma', 'Vercel', 'Resend', 'Docker', 'Jest',
                 ].map((tool, index) => (
                   <span
                     key={tool}

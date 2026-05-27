@@ -1,22 +1,33 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Link from 'next/link'
-import Image from 'next/image'
-import { LINKEDIN_URL, SITE_URL } from '@/lib/site'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { LINKEDIN_URL, OWNER_NAME, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'JoeLabs — Développeur Web Freelance | Next.js & TypeScript',
-    template: '%s | JoeLabs'
+    default: 'JoeLabs — Développeur Web Freelance | React & TypeScript',
+    template: '%s | JoeLabs',
   },
-  description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes. Expert en SEO et optimisation.',
-  keywords: ['développeur web', 'freelance', 'Next.js', 'TypeScript', 'React', 'portfolio', 'site vitrine', 'application web', 'SEO', 'performance'],
-  authors: [{ name: 'Jonathan Luembe', url: `${SITE_URL}/` }],
-  creator: 'Jonathan Luembe',
-  publisher: 'JoeLabs',
+  description:
+    'Développeur web freelance spécialisé en React, TypeScript et applications web performantes. Sites vitrines, portfolios et projets sur mesure. Expert SEO et optimisation.',
+  keywords: [
+    'développeur web',
+    'freelance',
+    'React',
+    'TypeScript',
+    'Next.js',
+    'site vitrine',
+    'application web',
+    'SEO',
+    'performance',
+  ],
+  authors: [{ name: OWNER_NAME, url: `${SITE_URL}/` }],
+  creator: OWNER_NAME,
+  publisher: SITE_NAME,
   formatDetection: {
     email: false,
     address: false,
@@ -27,16 +38,17 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'JoeLabs — Développeur Web Freelance | Next.js & TypeScript',
-    description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS performantes.',
+    title: 'JoeLabs — Développeur Web Freelance | React & TypeScript',
+    description:
+      'Développeur web freelance spécialisé en React et TypeScript. Création de sites vitrines et applications web performantes.',
     url: SITE_URL,
-    siteName: 'JoeLabs',
+    siteName: SITE_NAME,
     images: [
       {
-        url: '/work/LogoJoe.png',
+        url: '/og-banner.png',
         width: 1200,
         height: 630,
-        alt: 'JoeLabs - Développeur Web Freelance',
+        alt: 'JoeLabs — Développeur Web Freelance React & TypeScript',
       },
     ],
     locale: 'fr_FR',
@@ -45,8 +57,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'JoeLabs — Développeur Web Freelance',
-    description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React.',
-    images: ['/work/LogoJoe.png'],
+    description: 'Développeur web freelance spécialisé en React et TypeScript.',
+    images: ['/og-banner.png'],
     creator: '@JoeLeDev',
   },
   robots: {
@@ -60,16 +72,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
   icons: {
-    icon: [
-      { url: '/work/LogoJoe.png', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/work/LogoJoe.png', sizes: '180x180', type: 'image/png' },
-    ],
+    icon: [{ url: '/work/LogoJoe.png', type: 'image/png' }],
+    apple: [{ url: '/work/LogoJoe.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
@@ -81,21 +86,22 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Jonathan Luembe',
+    name: OWNER_NAME,
     jobTitle: 'Développeur Web Freelance',
-    description: 'Développeur web freelance spécialisé en Next.js, TypeScript et React. Création de sites vitrines, portfolios et applications SaaS.',
+    description:
+      'Développeur web freelance spécialisé en React, TypeScript et applications web performantes.',
     url: SITE_URL,
     sameAs: [SITE_URL, LINKEDIN_URL],
-    knowsAbout: ['Next.js', 'TypeScript', 'React', 'Développement Web', 'SEO', 'Performance Web'],
+    knowsAbout: ['React', 'TypeScript', 'Next.js', 'Développement Web', 'SEO', 'Performance Web'],
     offers: {
       '@type': 'Service',
       name: 'Développement Web',
-      description: 'Création de sites vitrines, portfolios et applications web avec Next.js et TypeScript',
+      description: 'Création de sites vitrines et applications web avec React et TypeScript',
       provider: {
         '@type': 'Person',
-        name: 'Jonathan Luembe'
-      }
-    }
+        name: OWNER_NAME,
+      },
+    },
   }
 
   return (
@@ -107,49 +113,10 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <header className="border-b border-gray-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
-          <nav className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src="/work/LogoJoe.png"
-                  alt="JoeLabs Logo"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 rounded-full object-cover object-center"
-                />
-                <span className="text-xl font-bold text-brand">JoeLabs</span>
-              </Link>
-              <ul className="flex gap-6">
-                <li>
-                  <Link href="/" className="text-gray-300 hover:text-brand transition-colors">
-                    Accueil
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/work" className="text-gray-300 hover:text-brand transition-colors">
-                    Work
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-gray-300 hover:text-brand transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </header>
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <footer className="border-t border-gray-800 mt-20 bg-slate-900">
-          <div className="container mx-auto px-4 py-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} JoeLabs. Tous droits réservés.</p>
-          </div>
-        </footer>
+        <Header />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   )
 }
-

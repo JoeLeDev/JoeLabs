@@ -6,7 +6,12 @@ type ContactPayload = {
   email?: string
   subject?: string
   message?: string
+  company?: string
+  formLoadedAt?: number
 }
+
+const MIN_SUBMIT_MS = 3000
+const MAX_SUBMIT_MS = 1000 * 60 * 60
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -24,9 +29,23 @@ function getResendErrorMessage(message: string) {
 
 function buildFromAddress() {
   const address = process.env.RESEND_FROM_EMAIL?.trim()
+  const name = process.env.RESEND_FROM_NAME?.trim()
 
   if (!address) return null
-  return address
+  if (!name) return address
+  return `${name} <${address}>`
+}
+
+function isSpamSubmission(body: ContactPayload) {
+  if (body.company?.trim()) return true
+
+  const loadedAt = body.formLoadedAt
+  if (typeof loadedAt !== 'number' || !Number.isFinite(loadedAt)) return true
+
+  const elapsed = Date.now() - loadedAt
+  if (elapsed < MIN_SUBMIT_MS || elapsed > MAX_SUBMIT_MS) return true
+
+  return false
 }
 
 export async function POST(request: Request) {
@@ -47,6 +66,10 @@ export async function POST(request: Request) {
     body = await request.json()
   } catch {
     return NextResponse.json({ error: 'Corps de requête invalide.' }, { status: 400 })
+  }
+
+  if (isSpamSubmission(body)) {
+    return NextResponse.json({ ok: true })
   }
 
   const name = body.name?.trim()

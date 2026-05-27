@@ -86,10 +86,9 @@ RESEND_TO_EMAIL=votre@email.fr
 
 ### Images des projets
 
-Ajouter vos images dans `/public/work/` :
-- `Andre.png` - Projet André Déco
-- `Sarah.png` - Portfolio Sarah
-- `Advalis.png` - Projet Advalis
+Ajouter vos captures dans `/public/work/` (ex. `advalis-accueil.png`, `capitaine-depan-accueil.png`).
+
+La bannière Open Graph du site se trouve dans `/public/og-banner.png`.
 
 ## 🎨 Personnalisation
 

@@ -19,3 +19,13 @@ export const CONTACT_EMAIL = 'jonathanluembe@yahoo.com'
 export const SITE_NAME = 'JoeLabs'
 
 export const OWNER_NAME = 'Jonathan Luembe'
+
+/** Bannière Open Graph / réseaux sociaux (public/og-banner.png) */
+export const OG_IMAGE = {
+  url: '/og-banner.png',
+  width: 1024,
+  height: 682,
+  alt: 'JoeLabs — Développeur Web Freelance — React & TypeScript',
+} as const
+
+export const OG_IMAGE_ABSOLUTE = () => `${SITE_URL}${OG_IMAGE.url}?v=2`

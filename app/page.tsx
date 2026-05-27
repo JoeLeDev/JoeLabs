@@ -3,7 +3,7 @@ import { CASES } from './work/cases'
 import Image from 'next/image'
 import ProjectCard from '@/components/ProjectCard'
 import { Metadata } from 'next'
-import { SITE_URL } from '@/lib/site'
+import { OG_IMAGE, OG_IMAGE_ABSOLUTE, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Accueil',
@@ -13,10 +13,20 @@ export const metadata: Metadata = {
     title: 'JoeLabs — Développeur Web Freelance | Accueil',
     description: 'Transformez vos idées en applications web performantes. Expert React, TypeScript et développement sur mesure.',
     url: SITE_URL,
+    images: [
+      {
+        url: OG_IMAGE_ABSOLUTE(),
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
+        alt: OG_IMAGE.alt,
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'JoeLabs — Développeur Web Freelance',
     description: 'Transformez vos idées en applications web performantes. Expert React et TypeScript.',
+    images: [OG_IMAGE_ABSOLUTE()],
   },
 }
 

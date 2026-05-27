@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { LINKEDIN_URL, OWNER_NAME, SITE_NAME, SITE_URL } from '@/lib/site'
+import { LINKEDIN_URL, OG_IMAGE, OG_IMAGE_ABSOLUTE, OWNER_NAME, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: '/og-banner.png',
-        width: 1200,
-        height: 630,
-        alt: 'JoeLabs — Développeur Web Freelance React & TypeScript',
+        url: OG_IMAGE_ABSOLUTE(),
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
+        alt: OG_IMAGE.alt,
       },
     ],
     locale: 'fr_FR',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JoeLabs — Développeur Web Freelance',
     description: 'Développeur web freelance spécialisé en React et TypeScript.',
-    images: ['/og-banner.png'],
+    images: [OG_IMAGE_ABSOLUTE()],
     creator: '@JoeLeDev',
   },
   robots: {

@@ -14,7 +14,7 @@ Portfolio professionnel développé avec Next.js 14 pour présenter mes services
 
 - **Page d'accueil** : Présentation professionnelle avec sections animées
 - **Section Work** : Études de cas détaillées avec galeries d'images
-- **Formulaire de contact** : Intégration Formspree pour l'envoi d'emails
+- **Formulaire de contact** : Envoi d'e-mails via Resend (route API Next.js)
 - **Design responsive** : Optimisé mobile-first
 - **Performance** : Lighthouse Score > 90
 - **SEO** : Métadonnées optimisées
@@ -64,12 +64,23 @@ http://localhost:3000
 
 ## 📝 Configuration
 
-### Formspree (Formulaire de contact)
+### Resend (Formulaire de contact)
 
-1. Créer un compte sur [Formspree](https://formspree.io)
-2. Créer un nouveau formulaire
-3. Récupérer l'endpoint Formspree
-4. Mettre à jour l'URL dans `app/contact/page.tsx`
+1. Créer un compte sur [Resend](https://resend.com)
+2. Générer une clé API et vérifier votre domaine d'envoi (ou utiliser `onboarding@resend.dev` en test)
+3. Copier `.env.example` vers `.env.local` et renseigner :
+
+```bash
+cp .env.example .env.local
+```
+
+```env
+RESEND_API_KEY=re_...
+RESEND_FROM_EMAIL=JoeLabs <contact@votredomaine.fr>
+RESEND_TO_EMAIL=votre@email.fr
+```
+
+4. En production (Vercel), ajouter les mêmes variables dans le dashboard du projet
 
 ### Images des projets
 

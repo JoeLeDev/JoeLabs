@@ -18,8 +18,7 @@ export default function ContactPage() {
     setErrorMessage('')
 
     try {
-      // Utilisation de Formspree pour l'envoi d'email
-      const response = await fetch('https://formspree.io/f/xanpannw', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,11 +38,16 @@ export default function ContactPage() {
         // Réinitialiser le statut après 5 secondes
         setTimeout(() => setStatus('idle'), 5000)
       } else {
-        throw new Error('Erreur lors de l&apos;envoi')
+        const data = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(data?.error ?? "Erreur lors de l'envoi")
       }
     } catch (error) {
       setStatus('error')
-      setErrorMessage('Une erreur est survenue lors de l&apos;envoi. Veuillez réessayer.')
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
+      )
       
       // Réinitialiser le statut après 5 secondes
       setTimeout(() => setStatus('idle'), 5000)

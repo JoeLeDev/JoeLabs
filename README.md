@@ -76,9 +76,11 @@ cp .env.example .env.local
 
 ```env
 RESEND_API_KEY=re_...
-RESEND_FROM_EMAIL=JoeLabs <contact@votredomaine.fr>
+RESEND_FROM_EMAIL=votreemaillié a votre nom de domaine
 RESEND_TO_EMAIL=votre@email.fr
 ```
+
+> **Important :** le domaine de `RESEND_FROM_EMAIL` doit être vérifié dans le dashboard Resend (*Domains*). Sans cela, l'API renvoie une erreur 502.
 
 4. En production (Vercel), ajouter les mêmes variables dans le dashboard du projet
 

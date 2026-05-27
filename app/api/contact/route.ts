@@ -12,10 +12,27 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
+function getResendErrorMessage(message: string) {
+  if (message.includes('domain is not verified')) {
+    return "Le domaine d'envoi n'est pas vérifié dans Resend. Ajoutez et vérifiez votre domaine sur resend.com/domains."
+  }
+  if (message.includes('only send testing emails to your own email')) {
+    return "En mode test Resend, l'envoi est limité à l'adresse de votre compte. Vérifiez un domaine pour envoyer vers d'autres destinataires."
+  }
+  return "Impossible d'envoyer le message pour le moment."
+}
+
+function buildFromAddress() {
+  const address = process.env.RESEND_FROM_EMAIL?.trim()
+
+  if (!address) return null
+  return address
+}
+
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY
-  const from = process.env.RESEND_FROM_EMAIL
-  const to = process.env.RESEND_TO_EMAIL
+  const from = buildFromAddress()
+  const to = process.env.RESEND_TO_EMAIL?.trim()
 
   if (!apiKey || !from || !to) {
     return NextResponse.json(
@@ -64,10 +81,11 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error('Resend error:', error)
-    return NextResponse.json(
-      { error: "Impossible d'envoyer le message pour le moment." },
-      { status: 502 }
-    )
+    const message =
+      typeof error.message === 'string'
+        ? getResendErrorMessage(error.message)
+        : "Impossible d'envoyer le message pour le moment."
+    return NextResponse.json({ error: message }, { status: 502 })
   }
 
   return NextResponse.json({ ok: true })

@@ -18,10 +18,56 @@ export type CaseStudy = {
   solutions: string[];
   cover: string;
   gallery?: string[];
+  liveUrl?: string;
+  repoUrl?: string;
 };
 
 export const CASES: CaseStudy[] = [
-  
+  {
+    slug: "capitaine-depan-serrurier",
+    title: "Capitaine Depan' — Serrurier Île-de-France",
+    subtitle: "Site vitrine • Urgence 24/7, services, devis & contact",
+    client: "Capitaine Depan'",
+    period: "2026",
+    context:
+      "Site one-page pour un serrurier dépanneur en Île-de-France : identité visuelle forte (mascotte, thème sombre et orange), présentation des prestations, parcours de conversion (appel, WhatsApp, demande de devis) et formulaire de contact structuré.",
+    objective:
+      "Générer des leads qualifiés (urgences et devis planifiés), rassurer sur la réactivité 24/7 et la transparence tarifaire, tout en offrant une expérience mobile fluide pour les situations d'urgence.",
+    role:
+      "Conception et développement full-stack : SPA React/Vite one-page, API devis (Express en local, serverless Vercel en prod), intégration Resend, SEO schema.org, bannière cookies et déploiement.",
+    stack: [
+      "React 18",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Resend",
+      "Vercel",
+    ],
+    kpis: [
+      { label: "Sections livrées", value: "Accueil, Services, Atouts, Devis, Contact" },
+      { label: "SEO", value: "Open Graph + schema.org Locksmith" },
+      { label: "Canaux de contact", value: "Téléphone, WhatsApp, formulaire e-mail" },
+    ],
+    challenges: [
+      "Hiérarchiser l'urgence (appel immédiat) vs la demande de devis planifiée",
+      "Envoi fiable des demandes de devis en production (API + Resend)",
+      "Conformité RGPD (cookies, mentions légales) sans bloquer la conversion mobile",
+    ],
+    solutions: [
+      "Hero avec CTAs multiples + bouton d'appel fixe sur mobile",
+      "Route serverless `api/send-devis` sur Vercel, variables d'environnement Resend",
+      "Bannière cookies (analytics opt-in), animations au scroll, pages légales dédiées",
+    ],
+    liveUrl: "https://capitaine-depan.vercel.app/",
+    repoUrl: "https://github.com/JoeLeDev/Capitaine_Depan",
+    cover: "/work/capitaine-depan-accueil.png",
+    gallery: [
+      "/work/capitaine-depan-accueil.png",
+      "/work/capitaine-depan-services.png",
+      "/work/capitaine-depan-process.png",
+      "/work/capitaine-depan-devis.png",
+    ],
+  },
   {
     slug: "portfolio-photographe-sarah",
     title: "Portfolio Photographe — Sarah",

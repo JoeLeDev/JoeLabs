@@ -342,7 +342,7 @@ export default function Home() {
                 {
                   step: '01',
                   title: 'Découverte',
-                  description: 'Échange sur vos besoins, objectifs et contraintes. Établissement d&apos;un devis détaillé.',
+                  description: 'Échange sur vos besoins, objectifs et contraintes. Établissement d\'un devis détaillé.',
                 },
                 {
                   step: '02',

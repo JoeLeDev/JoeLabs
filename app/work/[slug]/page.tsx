@@ -99,28 +99,16 @@ export default function CaseStudyPage({ params }: Props) {
               )}
             </div>
           )}
-          {(caseStudy.liveUrl || caseStudy.repoUrl) && (
-            <div className="flex flex-wrap gap-3 mb-6">
-              {caseStudy.liveUrl && (
-                <a
-                  href={caseStudy.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-brand text-slate-900 rounded-lg hover:bg-opacity-90 transition-all"
-                >
-                  Voir le site ↗
-                </a>
-              )}
-              {caseStudy.repoUrl && (
-                <a
-                  href={caseStudy.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium border border-slate-600 text-gray-200 rounded-lg hover:border-brand/50 hover:text-brand transition-all"
-                >
-                  Code source ↗
-                </a>
-              )}
+          {caseStudy.liveUrl && (
+            <div className="mb-6">
+              <a
+                href={caseStudy.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-brand text-slate-900 rounded-lg hover:bg-opacity-90 transition-all"
+              >
+                Voir le site ↗
+              </a>
             </div>
           )}
           <p className="text-lg text-gray-300 leading-relaxed max-w-4xl">

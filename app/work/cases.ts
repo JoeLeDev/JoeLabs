@@ -19,7 +19,6 @@ export type CaseStudy = {
   cover: string;
   gallery?: string[];
   liveUrl?: string;
-  repoUrl?: string;
 };
 
 export const CASES: CaseStudy[] = [
@@ -59,7 +58,6 @@ export const CASES: CaseStudy[] = [
       "Bannière cookies (analytics opt-in), animations au scroll, pages légales dédiées",
     ],
     liveUrl: "https://capitaine-depan.vercel.app/",
-    repoUrl: "https://github.com/JoeLeDev/Capitaine_Depan",
     cover: "/work/capitaine-depan-accueil.png",
     gallery: [
       "/work/capitaine-depan-accueil.png",
@@ -67,34 +65,6 @@ export const CASES: CaseStudy[] = [
       "/work/capitaine-depan-process.png",
       "/work/capitaine-depan-devis.png",
     ],
-  },
-  {
-    slug: "portfolio-photographe-sarah",
-    title: "Portfolio Photographe — Sarah",
-    subtitle: "Next.js • Galeries optimisées, SEO & pages projets",
-    client: "Sarah (photographe)",
-    period: "2025",
-    context: "Portfolio pro présentant séries et projets, avec fidélité visuelle, navigation fluide et partage social soigné.",
-    objective: "Optimiser l'exploration des séries, préserver la qualité photo et assurer un SEO solide.",
-    role: "Dév front Next.js : architecture pages, composant Gallery, optimisation images, métadonnées SEO, accessibilité.",
-    stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Next/Image"],
-    kpis: [
-      { label: "Perf (desktop)", value: "> 95" },
-      { label: "CLS", value: "< 0.05" },
-      { label: "Poids page galerie", value: "< 1 Mo (lazy)" }
-    ],
-    challenges: [
-      "Qualité photo vs vitesse",
-      "Éviter CLS dans les grilles",
-      "Plein écran ergonomique (touch/keyboard)"
-    ],
-    solutions: [
-      "Next/Image (ratios connus, placeholders blur)",
-      "Masonry/justified grid avec réservations d'espace",
-      "Lightbox accessible, préchargement intelligent"
-    ],
-    cover: "/work/Sarah.png",
-    gallery: ["/work/Sarah.png", "/work/Sarah.png", "/work/Sarah.png"]
   },
   {
     slug: "advalis-saas",
@@ -131,6 +101,7 @@ export const CASES: CaseStudy[] = [
       "Données structurées en config (ex. sessions d’activation) pour mise à jour simple",
       "Route API Next.js + Resend, variables d’environnement pour la prod",
     ],
+    liveUrl: "https://www.advalis.fr",
     cover: "/work/advalis-accueil.png",
     gallery: [
       "/work/advalis-accueil.png",
